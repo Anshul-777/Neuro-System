@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+websockets
+python-multipart
+numpy
+opencv-python-headless
+mediapipe
+scipy
+librosa
+soundfile
+scikit-learn
+Pillow
+pydantic
+aiofiles
+python-dotenv
