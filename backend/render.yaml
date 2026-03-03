@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: neuro-vitals-api
+    runtime: python
+    region: oregon
+    plan: standard          # needs ≥512 MB RAM for mediapipe + librosa
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: IDENTITY_STORE_PATH
+        value: /tmp/neuro_vitals_ids.json
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PORT
+        value: "8000"
+    healthCheckPath: /health
+    autoDeploy: true
