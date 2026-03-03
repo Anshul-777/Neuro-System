@@ -1,15 +1,26 @@
+# Neuro-Vitals v2 — Render-compatible requirements
+# Key: opencv-python-headless avoids libGL dependency
+# mediapipe 0.10.x bundles its own native libs
+
 fastapi
 uvicorn[standard]
 websockets
 python-multipart
-numpy
-opencv-python-headless
-mediapipe
-scipy
-librosa
-soundfile
-scikit-learn
-Pillow
 pydantic
-aiofiles
 python-dotenv
+aiofiles
+
+# Computer Vision — headless is mandatory on cloud (no libGL)
+opencv-python-headless==4.9.0.80
+mediapipe==0.10.14
+
+# Signal Processing
+numpy
+scipy
+
+# Audio
+librosa==0.10.2
+soundfile==0.12.1
+
+# Utilities
+Pillow==10.3.0
